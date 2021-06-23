@@ -11,7 +11,7 @@ equivalent expression for each result, obtained by symbolic calculations. This i
 done in order to optimize the execution time, and to avoid the use of any python 
 library outside of the basic ones included in blender (ie. numpy).
 
-Author: ivanferrarigalizia@gmail.com
+Author: ieferrari
 '''
 import bpy
 import csv
@@ -23,12 +23,12 @@ for a in bpy.data.actions:
     bpy.data.actions.remove(a)
 
 #read the csv file with each angle (in degrees) for each articulation
-filename = '/home/user/Descargas/angulos.csv'
+filename = 'angulos.csv'
 with open(filename) as p:
         angulos = [list(map(float,rec)) for rec in csv.reader(p, delimiter=',')]
 
 # uncomment the following line to set any combination of angles manually        
-#angulos=[[0,0,0],[90,0,0],[0,0,45],[0,0,0],[0,45,0],[45,45,0]]
+#angulos=[[45,45,45],[90,0,0],[0,0,45],[0,0,0],[0,45,0],[45,45,0]]
 
 
 # define objects of the robot, these have to be already present in the scene (check the .blend file)
@@ -128,7 +128,7 @@ print('tip of the tool:')
 print('x,  y,  z')
 # this loop reads each angle and make corresponding transformations
 for th1, th2, th3 in angulos:
-    th1, th2, th3 = radians(th1)*2, radians(th2)+pi/2, radians(th3)-pi/2
+    th1, th2, th3 = radians(th1), radians(th2)-pi/2, radians(th3)
     
     # articulation 1 ==============================================================
     # rotation matrix
