@@ -1,5 +1,5 @@
 # blender-robotics
-Some 3d Robots simulators using python scripts inside Blender.
+Some 3D Robots simulators using python scripts inside Blender.
 
 Each .blend file has a specific robot configuration with defined articulations.
 
